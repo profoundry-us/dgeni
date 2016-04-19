@@ -10,6 +10,7 @@ While dgeni is amazing we need help keeping it going and make it better that it 
 
 
 ## Code of Conduct
+
 Help us keep dgeni open and inclusive. Please read and follow our [Code of Conduct][coc].
 
 
@@ -23,9 +24,24 @@ Help us keep dgeni open and inclusive. Please read and follow our [Code of Condu
 3. Good to go! Head over to the [Roadmap](roadmap) to see what is coming up.
    Or submit a [feature request or bug](issues).
 
-[The dgeni project alone is not that useful - we probably need to provide information about getting
-dgeni-packages and dgeni-example then linking them with npm for development.]
+Forking the dgeni project by itself is not particularly useful as you will likely want to modify
+something in one of the provided [dgeni-packages](https://github.com/angular/dgeni-packages). You
+will also want to setup your environment to use npm's [link](https://docs.npmjs.com/cli/link)
+functionality. The following article may be helpful in walking you through the process:
 
+http://justjs.com/posts/npm-link-developing-your-own-npm-modules-without-tears
+
+Once you have cloned both projects, cd into the dgeni-packages project and run `npm link`. Then, cd
+into the dgeni project's folder and run `npm link dgeni-packages`, and then `npm install` to install
+the remaining packages.
+
+Now, changes you make in the dgeni-packages folder will automatically be available in the dgeni
+project so you can run the dgeni tests!
+
+If you want to see how your changes really work, though, you'll need to download the
+[dgeni-example](https://github.com/angular/dgeni-example) project (or your own) and use `npm link`
+here as well to link the main `dgeni` project.
+ 
 ## Found a bug?
 
 Please open an [issue in Github](issues) for the relevant project. Problems with specific processors are more
